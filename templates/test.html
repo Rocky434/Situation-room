@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script>
+      var map = {};
+      function init()
+      { 
+        document.addEventListener("keydown",function(e)
+        {
+          map[e.keyCode] = e.type == 'keydown';
+        });
+        document.addEventListener("keyup",function(e)
+        {
+          map[e.keyCode] = e.type == 'keyup';
+          if(e.keyCode==38)
+          {
+            map[38]=0;
+            console.log("取消上");
+          }
+          else if(e.keyCode==39)
+          {
+            map[39]=0;
+            console.log("取消右");
+          }
+          else if(e.keyCode==37)
+          {
+            map[37]=0;
+            console.log("取消左");
+          }
+          else if(e.keyCode==40)
+          {
+            map[40]=0;
+            console.log("取消下");
+          }
+        });
+      }
+      function Control_EPS()
+      {
+        if(map[38]&&map[37])
+        {
+          console.log("左上");
+          //map[38]=0;
+        }
+        else if(map[38]&&map[39])
+        {
+          console.log("右上");
+          //map[38]=0;
+        }
+        else if(map[40]&&map[37])
+        {
+          console.log("左下");
+          //map[38]=0;
+        }
+        else if(map[40]&&map[39])
+        {
+          console.log("右下");
+          //map[38]=0;
+        }         
+        else if(map[38])
+        {
+          console.log("上");
+          //map[38]=0;
+        }
+        else if(map[40])
+        {
+          console.log("下");
+          //map[38]=0;
+        }
+        else if(map[39])
+        {
+          console.log("右");
+          //map[38]=0;
+        }
+        else if(map[37])
+        {
+          console.log("左");
+          //map[38]=0;
+        }
+      }
+    </script>
+  </head>
+  <body onload="init();">
+      
+    
+  </body>
+</html>
